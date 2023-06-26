@@ -1,0 +1,153 @@
+
+
+<script src="./js/Router.js"></script>
+<div id="backButton"></div>
+<style>
+    div.page{
+        display: none;
+    }
+    #backButton{
+        border: solid black;
+        border-width: 0 5px 5px 0;
+        display: inline-block;
+        padding: 5px;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        cursor: pointer;
+        margin:10px;
+    }
+</style>
+
+<div class="page" id="home">
+    <h1>Baby Bingo Games</h1>
+    <ul>
+        <li><a href="#game/bbg">bbg</a></li>
+        <li><a href="#game/megan">megan</a></li>
+        <li><a href="#game/library">library</a></li>
+        <li><a href="#game/jamie">jamie</a></li>
+
+    </ul>
+</div>
+
+<div class="page" id="game">
+    <script type="module" src="./js/Setup.js"></script>
+
+    <h1>Setup Game</h1>
+
+    <div id="launchGameButton" class="setup-button">
+        play now
+    </div>
+
+    <canvas id="downloadCanvas"></canvas>
+    <div id="downloadLinkContainer">
+        <input type="number" id="downloadNumber" min="1" max="99" value="1">
+        :
+        <div class="setup-button" id="downloadCardLink">
+            download play card
+        </div>
+    </div>
+    <style>
+        #launchGameButton{
+            font-size: 2em;
+            margin: 30px;
+        }
+        div.setup-button{
+            cursor: pointer;
+            border: 1px solid gray;
+            padding: 5px;
+            width:auto;
+            border-radius: 5px;
+
+            color: blue;
+            display: inline-block;
+        }
+        div.setup-button:hover{
+            background-color: rgb(228, 228, 228);
+            color:rgb(60, 60, 255);
+        }
+        div.setup-button:active{
+            background-color: rgb(171, 171, 171);
+            color:rgb(60, 60, 255);
+        }
+        #downloadNumber{
+            padding: 5px;
+        }
+        #downloadCanvas{
+            display: none;
+        }
+    </style>
+</div>
+
+
+<div class="page" id="play">
+    <script type="module" src="./js/Play.js"></script>  
+
+    <div id="spinnerContainer">
+        <canvas id="canvasSpinner">
+            Your browser doesn't support HTML canvas. 
+            Please upgrade to a newer browser.
+        </canvas>
+
+        <div id="spinButtonWrapper">
+            <div id="spinButton" v-on:click="spin(curInd)">Go!</div>
+        </div>
+    </div>
+    <div id="loadingSpinner">
+        <!--loading icon from loading.io-->
+        <img src="../assets/loading.svg" alt="loading">
+    </div>
+    
+    <style>
+        #loadingSpinner{
+            margin: 0;
+            width: 100%;
+
+            padding-top: 30px;
+            text-align: center;
+        }
+        #canvasSpinner{
+            border:10px solid pink;
+            border-radius: 15px;
+            display: block;
+            margin:auto;
+        }
+        #spinnerContainer{
+            display: none;
+            margin:0px;
+            width:100%;
+
+            padding:0;
+
+            color:black;
+            text-align:center;
+
+            position:relative;
+        }
+        #spinButton{
+            width:100px;
+            height:100px;
+            line-height:100px;
+            background-color: #aa00ff;
+            color: white;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+            margin:auto;
+            font-size: 2em;
+            user-select: none;
+        }
+        #spinButton:hover{
+            background-color: #cc22ff;
+        }
+        #spinButton:active{
+            background-color: #ee44ff;
+        }
+        #spinButtonWrapper{
+            display:block;
+            text-align:center;
+            padding:15px;
+        }
+
+
+    </style>
+</div>
